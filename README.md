@@ -1,45 +1,55 @@
 # Mafia Narrator
 
-A Persian-language companion app for running in-person **Mafia** games. It helps the narrator prepare a scenario, distribute roles privately, and manage players during the game.
+A Persian-language companion app for running in-person **Mafia** games. Mafia Narrator helps a game narrator configure a session, distribute roles privately, and manage the game from a mobile-friendly, right-to-left interface.
+
+> **Project:** Personal TypeScript application  
+> **Author:** Arian Hasanzadeh  
+> **Status:** In development
 
 ## Features
 
-- **Preset scenarios** with configurable player counts and role requirements.
-- **Custom games** with selectable roles and player names.
-- **Saved scenarios and custom roles** stored locally on the device.
-- **Blind role distribution** with shuffled cards.
-- **Narrator dashboard** to track player status and warnings, reorder players, draw last-move cards, and use the timer.
-- **Persian (RTL) interface** designed for mobile use.
+- **Preset scenarios** with player-count and role requirements.
+- **Custom game setup** with player names and selectable roles.
+- **Saved scenarios and custom roles** persisted locally on the device.
+- **Shuffled role distribution** so players can view their roles privately, one at a time.
+- **Narrator dashboard** for tracking player status and warnings, reordering players, drawing last-move cards, and using the timer.
+- **Persian (RTL) interface** designed with mobile use in mind.
 
-## Tech stack
+## Tech Stack
 
-- React Native
-- Expo
-- TypeScript
-- Zustand
-- AsyncStorage for local persistence
+- **TypeScript**
+- **React Native** and **Expo**
+- **Zustand** for shared state
+- **AsyncStorage** for local persistence
 
-## Getting started
+## Getting Started
 
-### Requirements
+### Prerequisites
 
-- Node.js (use a current LTS release compatible with your installed Expo SDK)
+- Node.js LTS compatible with the Expo SDK used by this project
 - npm
-- Expo Go for device testing, or an Android/iOS simulator
+- Expo Go, an Android/iOS simulator, or a suitable web environment
 
-### Install dependencies
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Arianhz04/MafiaNarratorApp.git
+cd MafiaNarratorApp
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### Start the development server
+### 3. Start the development server
 
 ```bash
 npm start
 ```
 
-Then follow the Expo CLI instructions to open the app in Expo Go or a simulator.
+Follow the Expo CLI instructions to open the app on a device or simulator.
 
 Platform-specific commands:
 
@@ -49,53 +59,68 @@ npm run ios
 npm run web
 ```
 
-## Project structure
+The availability and behavior of each target depend on the local development environment and the project's Expo configuration.
+
+## How to Use
+
+1. Open the app and choose a game setup.
+2. Select a preset scenario or create a custom game.
+3. Set the player count and enter player names as needed.
+4. Distribute shuffled role cards privately, one player at a time.
+5. Use the narrator dashboard to manage player status, warnings, turn order, last-move cards, and the timer.
+6. Reset the game when the session is over.
+
+Available roles and actions depend on the selected scenario and the content implemented in the app.
+
+## Project Structure
 
 ```text
 .
-├── App.tsx                 # App flow and screen navigation
-├── index.ts                # Expo entry point
-├── app.json                # Expo app configuration
+├── App.tsx
+├── index.ts
+├── app.json
 ├── src/
-│   ├── components/         # Screens and reusable UI components
-│   ├── data/               # Preset scenarios, roles, and game cards
-│   ├── store/               # Shared game state
-│   └── types/              # TypeScript domain types
-├── assets/                 # Images and card artwork
+│   ├── components/   # Screens and reusable UI components
+│   ├── data/         # Preset scenarios, roles, and game cards
+│   ├── store/        # Shared game state
+│   └── types/        # TypeScript domain types
+├── assets/           # Images and card artwork
 ├── package.json
 └── tsconfig.json
 ```
 
-## How to use
+## Data and Privacy
 
-1. Open the app and choose a game setup.
-2. Select a preset scenario or create a custom game.
-3. Set the player count and enter names if desired.
-4. Distribute the shuffled role cards to players one at a time.
-5. Use the narrator dashboard to track who is alive, manage warnings, and draw available last-move cards.
-6. Reset the game when the session is finished.
+Custom scenarios and roles are stored using device-local AsyncStorage. This README does not describe a cloud backend or account system; do not assume saved data synchronizes between devices. Avoid entering sensitive personal information into test data.
 
-Exact options depend on the selected scenario and the roles included in the project.
+## Development Checks
 
-## Data and privacy
-
-Saved custom scenarios and roles use device-local AsyncStorage. This repository does not document a cloud-sync service, so do not assume local data is synchronized between devices.
-
-## Development checks
-
-Before submitting changes, run:
+Run these checks before submitting changes:
 
 ```bash
 npx tsc --noEmit
 npx expo-doctor
 ```
 
-Also test the main flows on the target platform: scenario selection, custom-game setup, role distribution, saved scenarios, and narrator controls.
+Also manually test the main flows on your target platform: scenario selection, custom-game setup, role distribution, saved scenarios, and narrator controls.
+
+## Development Notes
+
+This project was developed with AI-assisted tools as part of the implementation workflow. The repository is intended to document the actual application code and its behavior; contributors should review and understand changes before merging them.
+
+## Future Improvements
+
+Potential next steps include:
+
+- Add automated tests for game setup and state transitions.
+- Improve accessibility and test layouts on different screen sizes.
+- Add screenshots or a short demo to document the user experience.
+- Review persistence behavior and provide export/backup options if needed.
 
 ## Contributing
 
-Issues and pull requests are welcome. When reporting a bug, include the platform, steps to reproduce, expected behavior, and actual behavior.
+Bug reports and focused pull requests are welcome. Please include the platform, steps to reproduce, expected behavior, and actual behavior when reporting an issue.
 
 ## License
 
-No license is currently specified in this repository. Unless a license is added, reuse and redistribution are not automatically granted.
+No license is currently specified. Unless a license is added, reuse and redistribution are not automatically granted.
